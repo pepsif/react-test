@@ -1,0 +1,7 @@
+
+.user_section {
+background-color: #595959;
+display: flex;
+    grid-area: content;
+}
+

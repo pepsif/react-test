@@ -1,0 +1,10 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    background-color: #686363;
+    color: white;
+    grid-area: dialogs;
+}
+/*-----MESSAGES--BLOCK-----*/
+

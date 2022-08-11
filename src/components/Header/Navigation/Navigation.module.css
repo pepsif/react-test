@@ -1,0 +1,24 @@
+.navigation {
+
+}
+
+.list {
+    display: flex;
+    list-style: none;
+
+}
+
+.item {
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 4px 5px 4px #686363;
+    padding: 5px 0 5px 0;
+    cursor: pointer;
+
+}
+
+.item:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}

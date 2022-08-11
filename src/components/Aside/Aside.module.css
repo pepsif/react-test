@@ -1,0 +1,37 @@
+.aside {
+    background-color: #203748;
+    width: 300px;
+    height:300px;
+    color: white;
+
+    grid-area: aside;
+}
+
+.nav_list {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 60px 20%;
+}
+
+.item {
+    padding: 5px 0;
+
+    position: relative;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+.item_link {
+    color: white;
+    cursor: pointer;
+    /*text-decoration: none;*/
+}
+
+.span {
+    position: absolute;
+    top: 0;
+    left: 90px;
+    color: red;
+}
