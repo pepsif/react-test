@@ -1,0 +1,55 @@
+.button_block {
+
+    display: flex;
+    align-items: center;
+}
+
+.textArea {
+    width: 500px;
+    background-color: darkkhaki;
+    resize: none;
+    padding: 10px 0 0 20px;
+    font-size: 20px;
+    border: none;
+
+}
+
+.addButton {
+    width: 140px;
+    height: 30px;
+    margin-left: 20px;
+    background-color: darkkhaki;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.post_section {
+    display: flex;
+    /*align-items: center;*/
+    /*padding: 10px;*/
+
+}
+
+.post_photo {
+
+    width: 100px;
+}
+
+.user_block {
+    background-color: dimgray;
+    /*padding: 20px 150px 20px 30px;*/
+    position: relative;
+}
+
+.post_text {
+    margin-left: 50px;
+    color: white;
+}
+
+.like {
+    position: absolute;
+    right: 30px;
+    bottom: 0px;
+    color: white;
+}

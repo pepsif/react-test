@@ -1,0 +1,35 @@
+
+
+.dialog_block {
+    padding: 10px 30px;
+}
+
+.dialogs_title {
+    cursor: default;
+}
+
+.dialogs_items {
+
+}
+
+.item {
+    margin-bottom: 8px;
+    cursor: pointer;
+
+}
+
+
+.active {
+    color:goldenrod;
+    transform: scale(1.1);
+}
+.item_link {
+    color: white;
+    text-decoration: none;
+}
+.item_link:hover {
+    color: goldenrod;
+}
+.item_link:visited {
+    /*color:red;*/
+}

@@ -1,0 +1,16 @@
+.post_section {
+   /*display: block;*/
+   /*align-items: center;*/
+   /* border-radius: 20px;*/
+}
+.post_photo {
+
+    width:100px;
+}
+.user_block {
+    background-color: rosybrown;
+
+}
+.post_text {
+margin-left: 50px;
+}
