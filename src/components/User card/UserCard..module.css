@@ -5,7 +5,7 @@
 .card {
     display: flex;
     background-color: #686363;
-    /*width: 100%;*/
+   /*grid-area: card;*/
 }
 .card_photo {
 border-radius: 20px;

@@ -7,12 +7,6 @@ const Post = (props) => {
     const newPostElement = React.createRef();
     const addPostButton = React.createRef();
 
-    let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        props.updateNewPostText('')
-    }
-
     let postsElements = props.state.map(item => {
         // debugger
         return (
@@ -27,9 +21,14 @@ const Post = (props) => {
         )
     })
 
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        props.updateNewPostText('')
+    }
     const onPostChange = () => {
         let text = newPostElement.current.value;
-       props.updateNewPostText(text)
+        props.updateNewPostText(text)
     }
 
     return (

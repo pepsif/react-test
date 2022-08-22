@@ -1,10 +1,6 @@
-import './index.css';
-import {rerenderEntireTree} from "./render";
-import state from "./redux/state";
-import {addPost} from "./redux/state";
-import {updateNewPostText} from "./redux/state";
+import store from "./redux/state";
+import {rerenderEntireTree} from "./App";
 
+rerenderEntireTree( store.getState(), store.addPost.bind(store), store.updateNewPostText.bind(store) )
 
-rerenderEntireTree( state, addPost, updateNewPostText )
-
-// debugger
+store.subscriber( rerenderEntireTree )
