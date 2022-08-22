@@ -39,6 +39,13 @@ let store = {
     },
     subscriber(observer) {
         this._callSubscribe = observer
+    },
+    dispatch( action) {
+        if(action.type === "UPDATE-NEW-POST-TEXT") {
+
+        } else if (action.type === "ADD-POST") {
+
+        }
     }
 }
 
