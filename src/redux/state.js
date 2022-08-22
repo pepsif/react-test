@@ -1,4 +1,3 @@
-import { rerenderEntireTree } from "../App";
 let store = {
     _state: {
         dialogsPage: {
@@ -25,23 +24,23 @@ let store = {
        getState() {
         return this._state
        },
-    rerenderEntireTree() {
+    _callSubscribe() {
         console.log('state is changed')
     },
     addPost(postMessage) {
         const newPost = { name: "you", message: postMessage, like: 18 };
         this._state.postsPage.posts.push( newPost )
-        rerenderEntireTree( this._state,this.addPost,this.updateNewPostText )
+        this._callSubscribe( this._state )
     },
     updateNewPostText( newText ) {
+        console.log('update post text')
         this._state.postsPage.newPostText =  newText;
-        rerenderEntireTree( this._state, this.addPost, this.updateNewPostText)
+        this._callSubscribe( this._state )
     },
     subscriber(observer) {
-        rerenderEntireTree = observer
+        this._callSubscribe = observer
     }
 }
-
 
 export default store;
 window.store = store;
