@@ -23,14 +23,13 @@ const Post = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        props.addPost(text);
-        props.updateNewPostText('')
+        props.dispatch( { type: 'ADD-POST', newText: text} );
+
     }
     const onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updatePostText(text)
+        props.dispatch( {type: 'UPDATE-NEW-POST-TEXT', newText: text })
     }
-
     return (
         <div>
             <div className={styles.button_block}>

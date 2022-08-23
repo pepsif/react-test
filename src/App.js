@@ -9,7 +9,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let rerenderEntireTree = ( store ) => {
+export let rerenderEntireTree = ( store, dispatch ) => {
     // debugger
     root.render(
         <BrowserRouter>
@@ -18,8 +18,8 @@ export let rerenderEntireTree = ( store ) => {
                 <Aside/>
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
-                    <Route path="/dialogs" element={<Dialogs state={store._state}/>}/>
-                    <Route path="/posts" element={<Posts state={store._state} addPost={store.addPost} updatePostText={store.updateNewPostText} />}/>
+                    <Route path="/dialogs" element={<Dialogs state={store.dialogsPage}/>}/>
+                    <Route path="/posts" element={<Posts state={store.postsPage} dispatch={dispatch}  />}/>
                 </Routes>
             </div>
         </BrowserRouter>

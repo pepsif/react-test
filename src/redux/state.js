@@ -15,37 +15,33 @@ let store = {
         },
         postsPage: {
             posts: [
-                {name: "stepa", message: "hi, what  hapened?",like : 1},
+                {name: "stepa", message: "hi, what  hapened?", like: 1},
                 {name: "you", message: "yo, its olright", like: 3}
             ],
             newPostText: "enter you message"
         }
     },
-       getState() {
+    getState() {
         return this._state
-       },
-    _callSubscribe() {
+    },
+    dispatch(action) {
+        // debugger
+        if (action.type === "UPDATE-NEW-POST-TEXT") {
+            console.log('update post text')
+            this._state.postsPage.newPostText = action.newText;
+            this._callSubscriber(this._state,this.dispatch)
+        } else if (action.type === "ADD-POST") {
+            console.log('add text')
+            const newPost = {name: "you", message: action.newText, like: 18};
+            this._state.postsPage.posts.push(newPost)
+            this._callSubscriber(this._state)
+        }
+    },
+    _callSubscriber() {
         console.log('state is changed')
     },
-    addPost(postMessage) {
-        const newPost = { name: "you", message: postMessage, like: 18 };
-        this._state.postsPage.posts.push( newPost )
-        this._callSubscribe( this._state )
-    },
-    updateNewPostText( newText ) {
-        console.log('update post text')
-        this._state.postsPage.newPostText =  newText;
-        this._callSubscribe( this._state )
-    },
-    subscriber(observer) {
-        this._callSubscribe = observer
-    },
-    dispatch( action) {
-        if(action.type === "UPDATE-NEW-POST-TEXT") {
-
-        } else if (action.type === "ADD-POST") {
-
-        }
+    subscribe(observer) {
+        this._callSubscriber = observer
     }
 }
 

@@ -1,6 +1,6 @@
 import store from "./redux/state";
 import {rerenderEntireTree} from "./App";
 
-rerenderEntireTree( store )
+rerenderEntireTree( store.getState(),  store.dispatch)
 
-store.subscriber( rerenderEntireTree )
+store.subscribe( rerenderEntireTree )
