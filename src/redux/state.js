@@ -21,28 +21,29 @@ let store = {
             newPostText: "enter you message"
         }
     },
+    callSubscriber() {
+        console.log('state is changed')
+    },
+    subscriber(observer) {
+        this.callSubscriber = observer
+    },
     getState() {
         return this._state
     },
-    dispatch(action) {
+    dispatch( action ) {
         // debugger
         if (action.type === "UPDATE-NEW-POST-TEXT") {
             console.log('update post text')
-            this._state.postsPage.newPostText = action.newText;
-            this._callSubscriber(this._state,this.dispatch)
+            store._state.postsPage.newPostText = action.newText;
+            this.subscriber( this._state)
         } else if (action.type === "ADD-POST") {
             console.log('add text')
             const newPost = {name: "you", message: action.newText, like: 18};
             this._state.postsPage.posts.push(newPost)
-            this._callSubscriber(this._state)
+            this.subscriber( this._state)
         }
-    },
-    _callSubscriber() {
-        console.log('state is changed')
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer
     }
+
 }
 
 export default store;
