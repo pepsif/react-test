@@ -8,9 +8,9 @@ let store = {
                 {name: "Nikolaj", id: 4},
                 {name: "Janka", id: 5}
             ],
-            MessagesData: [{id: 1, name: "Stepa", message: "igo gooo igoo gooo"},
-                {id: 2, name: "You", message: "bla bla bla bla koniku", like: 3},
-                {id: 2, name: "Janka", message: "guliat hto bude?", like: 24}
+            MessagesData: [{id: 1, name: "Stepa", message: "Hello my friends"},
+                {id: 2, name: "You", message: "bla bla bla bla ", like: 3},
+                {id: 2, name: "Janka", message: "Who is Stepa?))", like: 24}
             ]
         },
         postsPage: {
@@ -26,7 +26,7 @@ let store = {
     },
     setRenderListener( renderListener ) {
         this.renderListener = renderListener;
-        console.log('piskjaa')
+        console.log('setRenderListener')
     },
     getState() {
         return this._state
