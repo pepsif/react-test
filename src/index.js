@@ -15,4 +15,4 @@ let rerenderEntireTree = ( ) => {
 
 rerenderEntireTree( store.getState() )
 //
-store.subscriber( rerenderEntireTree )
+store.setRenderListener( rerenderEntireTree )
