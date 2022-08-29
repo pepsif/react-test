@@ -1,7 +1,7 @@
 import styles from "./Post.module.css"
 import photo from "../../../Images/15.jpg"
 import React from "react"
-import {addPostActionCreator, updatePostActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/state";
 
 
 const Post = (props) => {
@@ -9,7 +9,7 @@ const Post = (props) => {
     const newPostElement = React.createRef();
     const addPostButton = React.createRef();
 
-    let postsElements = props.state.map(item => {
+    const postsElements = props.state.map(item => {
         // debugger
         return (
             <div className={styles.post_section}>
@@ -23,14 +23,14 @@ const Post = (props) => {
         )
     })
 
-    let addPost = () => {
-        let text = newPostElement.current.value;
+    const addPost = () => {
+        const text = newPostElement.current.value;
         props.dispatch( addPostActionCreator( text ) );
 
     }
     const onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.dispatch( updatePostActionCreator( text ))
+        const text = newPostElement.current.value;
+        props.dispatch( updatePostTextActionCreator( text ) )
     }
     return (
         <div>

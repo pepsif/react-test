@@ -22,3 +22,22 @@
 .name {
 
 }
+
+.send_message_block {
+    display: flex;
+    align-items: center;
+}
+.textarea {
+    width:250px;
+    height:100px;
+    flex-grow: 1;
+    border: none;
+    border-radius: 10px;
+}
+.send_button {
+    width: 150px;
+    height: 60px;
+   border-radius: 10px;
+    border: none;
+    margin-left: 20px;
+}

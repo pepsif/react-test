@@ -1,3 +1,6 @@
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+
 let store = {
     _state: {
         dialogsPage: {
@@ -26,45 +29,36 @@ let store = {
     },
     setRenderListener( renderListener ) {
         this.renderListener = renderListener;
-        console.log('setRenderListener')
-    },
+          },
     getState() {
         return this._state
     },
     dispatch( action ) {
         // debugger
-        if (action.type === "UPDATE-NEW-POST-TEXT") {
+        if (action.type === UPDATE_NEW_POST_TEXT ) {
             // console.log('update post text')
             this._state.postsPage.newPostText = action.newText;
             this.renderListener( this.getState() )
-            console.log(store._state.postsPage.newPostText)
+            console.log( store._state.postsPage.newPostText )
         }
-        if (action.type === "ADD-POST") {
+        else if (action.type === ADD_POST ) {
             // console.log('add text')
-            const newPost = {name: "you", message: action.newText, like: 18};
+            const newPost = { name: "you", message: action.newText, like: 18 };
             this._state.postsPage.posts.push(newPost)
             this.renderListener( this.getState() )
-            console.log(store._state.postsPage.posts)
+            console.log( store._state.postsPage.posts)
         }
     }
 
 }
 
 export let addPostActionCreator = ( text ) => {
-    return(
-        {
-            type: 'ADD-POST',
-            newText: text
-        }
-    )
+    return( { type: 'ADD-POST', newText: text  } )
 }
-export let updatePostActionCreator = ( text ) => {
-    return(
-        {
-            type: 'UPDATE-NEW-POST-TEXT',
-            newText: text }
-    )
+export let updatePostTextActionCreator = ( text ) => {
+    return( { type: 'UPDATE-NEW-POST-TEXT', newText: text } )
 }
+
 export default store;
 window.store = store;
 
