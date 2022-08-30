@@ -1,7 +1,6 @@
 import styles from './Dialogs.module.css';
 import Dialog from "./Dialog/Dialog";
 import Messages from "./Messages/Messages";
-import state from "../../redux/state";
 
 const Dialogs = ( props ) => {
     // debugger

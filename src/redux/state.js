@@ -1,7 +1,8 @@
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_POST = 'ADD-POST';
+import postsReducer from "./posts-reducer";
+
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+
 
 let store = {
     _state: {
@@ -38,18 +39,20 @@ let store = {
     },
     dispatch(action) {
         // debugger
-        if (action.type === UPDATE_NEW_POST_TEXT) {
-            // console.log('update post text')
-            this._state.postsPage.newPostText = action.newText;
-            this.renderListener(this.getState())
-            console.log(store._state.postsPage.newPostText)
-        } else if (action.type === ADD_POST) {
-            // console.log('add text')
-            const newPost = { name: "you", message: action.newText, like: 18 };
-            this._state.postsPage.posts.push(newPost)
-            this.renderListener(this.getState())
-            console.log(store._state.postsPage.posts)
-        } else if (action.type === UPDATE_MESSAGE_TEXT) {
+       this._state.postsPage = postsReducer( this._state.postsPage, action)
+        this.renderListener( this.getState() )
+        // if (action.type === UPDATE_NEW_POST_TEXT) {
+        //     // console.log('update post text')
+        //     this._state.postsPage.newPostText = action.newText;
+        //     this.renderListener(this.getState())
+        //     console.log(store._state.postsPage.newPostText)
+        // } else if (action.type === ADD_POST) {
+        //     // console.log('add text')
+        //     const newPost = { name: "you", message: action.newText, like: 18 };
+        //     this._state.postsPage.posts.push(newPost)
+        //     this.renderListener(this.getState())
+        //     console.log(store._state.postsPage.posts)
+        if (action.type === UPDATE_MESSAGE_TEXT) {
             console.log('update message text', action.newText)
             this._state.dialogsPage.messagesPageTextAreaText = action.newText;
             this.renderListener( this.getState() )
