@@ -5,7 +5,8 @@ export const postsReducer = (state, action) => {
     if (action.type === UPDATE_NEW_POST_TEXT) {
         state.newPostText = action.newText;
     } else if (action.type === ADD_POST) {
-        const newPost = {name: "you", message: action.newText, like: 18};
+        const newPost = { name: "you", message: action.newText, like: 18 };
+        state.posts.push( newPost )
     }
     return state
 }
