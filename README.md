@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# react-test
+
+test project social network or messenger
+use state in redux directory
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
