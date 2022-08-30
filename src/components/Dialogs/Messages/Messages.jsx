@@ -1,7 +1,11 @@
+import React from "react";
 import styles from "./Messages.module.css";
 import smile from "../../../Images/smile.png";
 
-const Messages = (props) => {
+const Messages = ( props ) => {
+    const messageElement = React.createRef();
+    const addMessageButton = React.createRef();
+
     const MessagesElements = props.messages.map(item => {
         return <div className={styles.messages_item}>
                  <img className={styles.message_image} src={smile} alt="smile"></img>
@@ -10,9 +14,13 @@ const Messages = (props) => {
                </div>
     })
     const messagesPostChange = () => {
-        console.log('messages text change')
+        const text = messageElement.current.value;
+        props.dispatch( {type: 'UPDATE-MESSAGE-TEXT', newText: text } )
     }
-
+    const sendMessage = () => {
+        const text = messageElement.current.value;
+        props.dispatch( {type: 'ADD-NEW-MESSAGE', newText: text } )
+    }
 
     return (
         <div className={styles.messages_block}>
@@ -21,8 +29,8 @@ const Messages = (props) => {
                 { MessagesElements }
             </div>
             <div className={styles.send_message_block}>
-              <textarea className={styles.textarea} onChange={ messagesPostChange }></textarea>
-              <button className={styles.send_button}>SEND MESSAGE</button>
+              <textarea className={styles.textarea} onChange={ messagesPostChange } value={ props.messagesText} ref={ messageElement }></textarea>
+              <button className={styles.send_button} ref={ addMessageButton } onClick={ sendMessage }>SEND MESSAGE</button>
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ export let App = ( store ) => {
                 <Aside />
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
-                    <Route path="/dialogs" element={<Dialogs state={store.store._state.dialogsPage}/>}/>
+                    <Route path="/dialogs" element={<Dialogs state={store.store._state.dialogsPage} dispatch={store.dispatch.bind(store)}/>}/>
                     <Route path="/posts" element={<Posts state={store.store._state.postsPage} dispatch={store.dispatch.bind(store)}/>}/>
                 </Routes>
             </div>
