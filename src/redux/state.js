@@ -36,6 +36,8 @@ let store = {
     },
     dispatch(action) {
         // debugger
+
+       // --REDUCERS--LOGic- --
         this._state.postsPage = postsReducer(this._state.postsPage, action)   //update text and add post
         this._state.dialogsPage = messagesReducer(this._state.dialogsPage, action)
 
