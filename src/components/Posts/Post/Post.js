@@ -1,7 +1,7 @@
 import styles from "./Post.module.css"
 import photo from "../../../Images/15.jpg"
 import React from "react"
-import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/store";
 
 
 const Post = (props) => {

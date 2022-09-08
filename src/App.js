@@ -1,22 +1,24 @@
-import './index.css'
+import './index.css';
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Aside from "./components/Aside/Aside";
 import UserCard from "./components/User card/User card";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
+import reduxStore from "./redux/redux-store";
 
 
-export let App = ( store ) => {
+export let App = ( props ) => {
     // debugger
+    // console.log(props)
     return(
             <div className="main_content">
                 <Header />
                 <Aside />
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
-                    <Route path="/dialogs" element={<Dialogs state={store.store._state.dialogsPage} dispatch={store.dispatch.bind(store)}/>}/>
-                    <Route path="/posts" element={<Posts state={store.store._state.postsPage} dispatch={store.dispatch.bind(store)}/>}/>
+                    <Route path="/dialogs" element={<Dialogs state={props.store.dialogsPage} dispatch={props.dispatch.bind(reduxStore)}/>}/>
+                    <Route path="/posts" element={<Posts state={props.store.postsPage} dispatch={props.dispatch.bind(reduxStore)}/>}/>
                 </Routes>
             </div>
         )

@@ -10,10 +10,10 @@ const DialogItem = ( props ) => {
         </div>
     )
 }
-
+// debugger
 const Dialog = ( props ) => {
 
-    const DialogElements = props.dialogData.map( item => {
+    const DialogElements = props.store.dialogsPage.dialogData.map( item => {
         return <DialogItem name={item.name} id={item.id} />
 
     })
