@@ -13,7 +13,7 @@ const DialogItem = ( props ) => {
 // debugger
 const Dialog = ( props ) => {
 
-    const DialogElements = props.store.dialogsPage.dialogData.map( item => {
+    const DialogElements = props.dialogData.map( item => {
         return <DialogItem name={item.name} id={item.id} />
 
     })

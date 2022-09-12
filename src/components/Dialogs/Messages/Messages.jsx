@@ -3,6 +3,7 @@ import styles from "./Messages.module.css";
 import smile from "../../../Images/smile.png";
 
 const Messages = ( props ) => {
+    // debugger
     const messageElement = React.createRef();
     const addMessageButton = React.createRef();
 

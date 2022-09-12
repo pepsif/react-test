@@ -11,7 +11,8 @@ let store = {
                 {name: "Nikolaj", id: 4},
                 {name: "Janka", id: 5}
             ],
-            MessagesData: [{id: 1, name: "Stepa", message: "Hello my friends"},
+            MessagesData: [
+                {id: 1, name: "Stepa", message: "Hello my friends"},
                 {id: 2, name: "You", message: "bla bla bla bla ", like: 3},
                 {id: 2, name: "Janka", message: "Who is Stepa?))", like: 24}
             ],
@@ -33,6 +34,9 @@ let store = {
     },
     getState() {
         return this._state
+    },
+    getDialogData() {
+      return this._state.dialogsPage.DialogData
     },
     dispatch( action ) {
         // debugger

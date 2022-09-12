@@ -1,6 +1,9 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import postsReducer from "./posts-reducer";
 import messagesReducer from "./messages-reducer";
+import { composeWithDevTools } from '@redux-devtools/extension';
+
+
 
 let reducers = combineReducers({
     postsPage : postsReducer,
@@ -8,6 +11,9 @@ let reducers = combineReducers({
     })
 
 
-let store = createStore( reducers );
+let store = createStore(reducers, composeWithDevTools(
+    applyMiddleware()
+    // other store enhancers if any
+));
 // debugger
 export default store
