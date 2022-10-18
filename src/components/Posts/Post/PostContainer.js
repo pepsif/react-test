@@ -21,19 +21,19 @@ const PostContainer = (props) => {
     //     )
     // })
 
-    const addPost = ( text ) => {
+    const addPost = (text) => {
         // const text = newPostElement.current.value;
-        props.dispatch( addPostActionCreator( text ) );
+        props.dispatch(addPostActionCreator(text));
 
     }
     const onPostChange = (text) => {
         // const text = newPostElement.current.value;
-        props.dispatch( updatePostTextActionCreator( text ) )
+        props.dispatch(updatePostTextActionCreator(text))
     }
     return (
-      <Post initialPostText={props.state.newPostText} onPostChange={ onPostChange } addPost={ addPost }/>
+        <Post initialPostText={props.postPage.newPostText} onPostChange={ onPostChange } addPost={ addPost } postsArr={props.postPage.posts} />
+
     )
 }
-
 export default PostContainer
 

@@ -8,7 +8,7 @@ const Posts = ( props ) => {
         // props   state={props.state.posts} dispatch={props.dispatch} newPostText={props.state.newPostText}
 
       <div className={styles.post_section}>
-          <PostContainer state={props.state} dispatch={props.dispatch} postsElements ={ props.state.posts} />
+          <PostContainer postPage={props.postPage} dispatch={props.dispatch} />
       </div>
  )
 }

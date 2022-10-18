@@ -5,7 +5,7 @@ import Aside from "./components/Aside/Aside";
 import UserCard from "./components/User card/User card";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
-import reduxStore from "./redux/redux-store";
+// import reduxStore from "./redux/redux-store";
 
 
 export let App = ( props ) => {
@@ -17,8 +17,8 @@ export let App = ( props ) => {
                 <Aside />
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
-                    <Route path="/dialogs" element={<Dialogs state={props.store.dialogsPage} dispatch={props.dispatch.bind(reduxStore)}/>}/>
-                    <Route path="/posts" element={<Posts state={props.store.postsPage} dispatch={props.dispatch.bind(reduxStore)}/>}/>
+                    <Route path="/dialogs" element={<Dialogs state={props.store.dialogsPage} dispatch={ props.dispatch }/>}/>
+                    <Route path="/posts" element={<Posts postPage={props.store.postsPage} dispatch={props.dispatch}/>}/>
                 </Routes>
             </div>
         )

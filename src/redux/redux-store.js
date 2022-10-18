@@ -13,7 +13,7 @@ let reducers = combineReducers({
 
 let store = createStore(reducers, composeWithDevTools(
     applyMiddleware()
-    // other store enhancers if any
+    // other reduxStore enhancers if any
 ));
 // debugger
 export default store
