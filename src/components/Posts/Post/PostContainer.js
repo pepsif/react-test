@@ -7,19 +7,6 @@ import Post from "./Post";
 
 const PostContainer = (props) => {
 
-    // const postsElements = props.state.map(item => {
-    //     // debugger
-    //     return (
-    //         <div className={styles.post_section}>
-    //             <img className={styles.post_photo} src={photo} alt="user photo"></img>
-    //             <div className={styles.user_block}>
-    //                 <h3 className={styles.post_text}>{item.name}</h3>
-    //                 <p className={styles.post_text}>{item.message}</p>
-    //                 <span className={styles.like}>like {item.like}</span>
-    //             </div>
-    //         </div>
-    //     )
-    // })
 
     const addPost = (text) => {
         // const text = newPostElement.current.value;

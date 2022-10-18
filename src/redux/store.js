@@ -48,6 +48,7 @@ let store = {
         this._callSubscriber(this.getState())
     }
 }
+    //  --POST-ACTION-CERATORS----
 
 export let addPostActionCreator = (text) => {
     return ({type: 'ADD-POST', newText: text})
@@ -55,6 +56,15 @@ export let addPostActionCreator = (text) => {
 export let updatePostTextActionCreator = (text) => {
     return ({type: 'UPDATE-NEW-POST-TEXT', newText: text})
 }
+
+//   --MESSAGES_ACTION-CREATORS---
+export let updatePostActionCreator = (text) => {
+    return ( { type: 'UPDATE-MESSAGE-TEXT', newText: text } )
+}
+export let sendMessageActionCreator = (text) => {
+    return ( { type: 'ADD-NEW-MESSAGE', newText: text } )
+}
+
 
 export default store;
 window.store = store;
