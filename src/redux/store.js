@@ -40,7 +40,7 @@ let store = {
     },
     dispatch( action ) {
         // debugger
-
+        
        // --REDUCERS--LOGic- ---
         this._state.postsPage = postsReducer(this._state.postsPage, action)   //update text and add post
         this._state.dialogsPage = messagesReducer(this._state.dialogsPage, action)
@@ -48,7 +48,7 @@ let store = {
         this._callSubscriber(this.getState())
     }
 }
-    //  --POST-ACTION-CERATORS----
+    //  --POST-ACTION-CREATORS----
 
 export let addPostActionCreator = (text) => {
     return ({type: 'ADD-POST', newText: text})

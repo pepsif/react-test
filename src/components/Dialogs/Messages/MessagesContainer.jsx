@@ -15,7 +15,8 @@ const MessagesContainer = ( props ) => {
     }
 
     return (
-      <Messages messagesText={props.messagesText}  messagesPostChange={ messagesPostChange } sendMessage={sendMessage}/>
+      <Messages messagesText={props.messagesText}  messagesPostChange={ messagesPostChange }
+                sendMessage={sendMessage} messages={props.messages} />
     )
 }
 
