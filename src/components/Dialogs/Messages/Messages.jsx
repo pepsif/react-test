@@ -6,8 +6,8 @@ const Messages = ( props ) => {
     // debugger
     const messageElement = React.createRef();
     const addMessageButton = React.createRef();
-
-    const MessagesElements = props.messages.map(item => {
+    
+    const MessagesElements = props.messagesArray.map(item => {
         return <div className={styles.messages_item}>
                  <img className={styles.message_image} src={smile} alt="smile"></img>
                  <h4 className={styles.name}>{item.name}</h4>
@@ -16,7 +16,7 @@ const Messages = ( props ) => {
     })
     const messagesPostChange = () => {
         const text = messageElement.current.value;
-        props.messagesPostChange(text) 
+        props.messagesPostChange(text)
     }
     const sendMessage = () => {
         const text = messageElement.current.value;
@@ -24,7 +24,8 @@ const Messages = ( props ) => {
     }
 
     return (
-     
+     // <textarea  
+    // <button className={styles.send_button}  >SEND MESSAGE</button>
 
         <div className={styles.messages_block}>
             <h2>Messages</h2>
@@ -32,7 +33,7 @@ const Messages = ( props ) => {
                 { MessagesElements }
             </div>
             <div className={styles.send_message_block}>
-              <textarea className={styles.textarea}  value={ props.messagesText} onChange={ messagesPostChange } ref={ messageElement }></textarea>
+              <textarea className={styles.textarea}  value={ props.messagesText} ref={ messageElement } onChange={ messagesPostChange }  ></textarea>
               <button className={styles.send_button} ref={ addMessageButton } onClick={ sendMessage }>SEND MESSAGE</button>
             </div>
         </div>

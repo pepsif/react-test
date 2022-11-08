@@ -16,7 +16,7 @@ let store = {
                 {id: 2, name: "You", message: "bla bla bla bla ", like: 3},
                 {id: 2, name: "Janka", message: "Who is Stepa?))", like: 24}
             ],
-            messagesPageTextAreaText: 'enter you message'
+            messagesPageTextAreaText: 'entxer you message'
         },
         postsPage: {
             posts: [

@@ -2,22 +2,33 @@ import React from "react";
 import styles from "./Messages.module.css";
 import smile from "../../../Images/smile.png";
 import Messages from "./Messages";
+import StoreContext from "../../../StoreContext";
 
-const MessagesContainer = ( props ) => {
+const MessagesContainer = () => {
     // debugger
-      const messagesPostChange = (text) => {
-        // const text = messageElement.current.value;
-        props.dispatch( {type: 'UPDATE-MESSAGE-TEXT', newText: text } )
-    }
-    const sendMessage = (text) => {
-        // const text = messageElement.current.value;
-        props.dispatch( {type: 'ADD-NEW-MESSAGE', newText: text } )
-    }
 
-    return (
-      <Messages messagesText={props.messagesText}  messagesPostChange={ messagesPostChange }
-                sendMessage={sendMessage} messages={props.messages} />
-    )
+
+    // <Messages  
+    //                     sendMessage={sendMessage} messages={store.getState().MessagesData} />
+    return <StoreContext.Consumer>
+        {reduxStore => {
+            const messagesPostChange = (text) => {
+                // const text = messageElement.current.value;
+                reduxStore.dispatch({ type: 'UPDATE-MESSAGE-TEXT', newText: text })
+            }
+            let sendMessage = (text) => {
+                // const text = messageElement.current.value;
+                reduxStore.dispatch({ type: 'ADD-NEW-MESSAGE', newText: text })
+            }
+            return <Messages messagesText={reduxStore.getState().dialogsPage.messagesPageTextAreaText}
+                messagesArray={reduxStore.getState().dialogsPage.MessagesData}
+                sendMessage={sendMessage}
+                messagesPostChange={ messagesPostChange }
+            />
+        }
+        }
+    </StoreContext.Consumer>
+
 }
 
-export default MessagesContainer
+export default MessagesContainer;

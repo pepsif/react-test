@@ -7,8 +7,8 @@ const Dialogs = ( props ) => {
     // debugger
     return (
         <div className={styles.dialogs}>
-            <Dialog dialogData={props.state.DialogData} />
-            <MessagesContainer  messages={props.state.MessagesData} dispatch={props.dispatch} messagesText={ props.state.messagesPageTextAreaText} />
+            {/*<Dialog />*/}
+            <MessagesContainer/>
         </div>
     )
 }

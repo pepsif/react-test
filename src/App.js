@@ -17,8 +17,8 @@ export let App = ( props ) => {
                 <Aside />
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
-                    <Route path="/dialogs" element={<Dialogs state={props.store.dialogsPage} dispatch={ props.dispatch }/>}/>
-                    <Route path="/posts" element={<Posts postPage={props.store.postsPage} dispatch={props.dispatch}/>}/>
+                    <Route path="/dialogs" element={<Dialogs/>}/>
+                    {/*<Route path="/posts" element={<Posts/>}/>*/}
                 </Routes>
             </div>
         )
