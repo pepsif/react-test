@@ -36,9 +36,10 @@ const Post = (props) => {
 
 
         <div>
+        
             <div className={styles.button_block}>
                 <textarea className={styles.textArea} ref={newPostElement} value={props.initialPostText}
-                          onChange={ onPostChange }  ></textarea>
+                          onChange={ onPostChange } ></textarea>
                 <button className={styles.addButton} ref={addPostButton} onClick={addPost}>Add post</button>
             </div>
             {postsElements}

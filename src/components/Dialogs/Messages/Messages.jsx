@@ -24,16 +24,13 @@ const Messages = ( props ) => {
     }
 
     return (
-     // <textarea  
-    // <button className={styles.send_button}  >SEND MESSAGE</button>
-
-        <div className={styles.messages_block}>
+         <div className={styles.messages_block}>
             <h2>Messages</h2>
             <div className={styles.messages}>
                 { MessagesElements }
             </div>
             <div className={styles.send_message_block}>
-              <textarea className={styles.textarea}  value={ props.messagesText} ref={ messageElement } onChange={ messagesPostChange }  ></textarea>
+              <textarea className={styles.textarea}  value={ props.messagesText} ref={ messageElement } onChange={ messagesPostChange }></textarea>
               <button className={styles.send_button} ref={ addMessageButton } onClick={ sendMessage }>SEND MESSAGE</button>
             </div>
         </div>

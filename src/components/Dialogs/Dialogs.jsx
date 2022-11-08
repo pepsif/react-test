@@ -7,7 +7,7 @@ const Dialogs = ( props ) => {
     // debugger
     return (
         <div className={styles.dialogs}>
-            {/*<Dialog />*/}
+            {/* <Dialog /> */}
             <MessagesContainer/>
         </div>
     )
