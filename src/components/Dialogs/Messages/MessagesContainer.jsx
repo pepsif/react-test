@@ -1,34 +1,28 @@
 import React from "react";
-import styles from "./Messages.module.css";
-import smile from "../../../Images/smile.png";
 import Messages from "./Messages";
-import StoreContext from "../../../StoreContext";
-
-const MessagesContainer = () => {
-    // debugger
+import {connect} from "react-redux";
 
 
-    // <Messages  
-    //                     sendMessage={sendMessage} messages={store.getState().MessagesData} />
-    return <StoreContext.Consumer>
-        {reduxStore => {
-            const messagesPostChange = (text) => {
-                // const text = messageElement.current.value;
-                reduxStore.dispatch({ type: 'UPDATE-MESSAGE-TEXT', newText: text })
-            }
-            let sendMessage = (text) => {
-                // const text = messageElement.current.value;
-                reduxStore.dispatch({ type: 'ADD-NEW-MESSAGE', newText: text })
-            }
-            return <Messages messagesText={reduxStore.getState().dialogsPage.messagesPageTextAreaText}
-                messagesArray={reduxStore.getState().dialogsPage.MessagesData}
-                sendMessage={sendMessage}
-                messagesPostChange={ messagesPostChange }
-            />
-        }
-        }
-    </StoreContext.Consumer>
-
+let mapStateToProps = (state) => {
+    return {
+        messagesText: state.dialogsPage.messagesPageTextAreaText,
+        messagesArray: state.dialogsPage.MessagesData
+    }
 }
+let mapsDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: (text) => {
+            dispatch({type: 'ADD-NEW-MESSAGE', newText: text})
+        },
+        messagesPostChange: (text) => {
+            dispatch({type: 'UPDATE-MESSAGE-TEXT', newText: text})
+        }
+
+    }
+}
+
+
+const MessagesContainer = connect( mapStateToProps, mapsDispatchToProps )( Messages );
+
 
 export default MessagesContainer;

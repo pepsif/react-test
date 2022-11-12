@@ -18,7 +18,7 @@ export let App = ( props ) => {
                 <Routes>
                     <Route path="/profile" element={<UserCard/>}/>
                     <Route path="/dialogs" element={<Dialogs/>}/>
-                    <Route path="/posts" element={<Posts/>}/>
+                    {/*<Route path="/posts" element={<Posts/>}/>*/}
                 </Routes>
             </div>
         )
