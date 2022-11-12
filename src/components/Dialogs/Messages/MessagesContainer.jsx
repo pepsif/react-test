@@ -17,12 +17,9 @@ let mapsDispatchToProps = (dispatch) => {
         messagesPostChange: (text) => {
             dispatch({type: 'UPDATE-MESSAGE-TEXT', newText: text})
         }
-
     }
 }
 
-
 const MessagesContainer = connect( mapStateToProps, mapsDispatchToProps )( Messages );
-
 
 export default MessagesContainer;

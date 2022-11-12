@@ -12,7 +12,7 @@ let rerenderEntireTree = () => {
    // debugger
     root.render(
         <BrowserRouter>
-           <Provider value={reduxStore}>
+           <Provider store={reduxStore}>
                <App/>
            </Provider>
 
