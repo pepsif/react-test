@@ -6,20 +6,12 @@ import {App} from "./App";
 import {Provider} from "react-redux";
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-let rerenderEntireTree = () => {
-   // debugger
-    root.render(
+    ReactDOM.render(
         <BrowserRouter>
            <Provider store={reduxStore}>
                <App/>
            </Provider>
 
-        </BrowserRouter>
+        </BrowserRouter>, document.getElementById('root')
     )
-}
 
-rerenderEntireTree( reduxStore.getState() )
-
-reduxStore.subscribe( rerenderEntireTree )
