@@ -12,7 +12,7 @@ const DialogItem = ( props ) => {
 }
 // debugger
 const Dialog = ( props ) => {
-
+// debugger
     const DialogElements = props.dialogData.map( item => {
         return <DialogItem name={item.name} id={item.id} />
 
@@ -22,6 +22,7 @@ const Dialog = ( props ) => {
             <h2 className={styles.dialogs_title}>Dialogs</h2>
             <div className={styles.dialogs_items}>
                 { DialogElements }
+
             </div>
         </div>
 
