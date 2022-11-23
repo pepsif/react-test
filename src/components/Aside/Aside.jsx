@@ -17,7 +17,7 @@ const Aside = (props) => {
                     <NavLink to="/posts" className={styles.item_link}>Posts</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/music" className={styles.item_link}>Music</NavLink>
+                    <NavLink to="/users" className={styles.item_link}>Users</NavLink>
                 </li>
                 <li className={styles.item}>
                     <NavLink to="/settings" className={styles.item_link}>Settings</NavLink>

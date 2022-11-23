@@ -5,7 +5,7 @@ import Aside from "./components/Aside/Aside";
 import UserCard from "./components/User card/User card";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
-// import reduxStore from "./redux/redux-store";
+import Users from "./components/Users/Users"
 
 
 export let App = ( props ) => {
@@ -19,6 +19,7 @@ export let App = ( props ) => {
                     <Route path="/profile" element={<UserCard/>}/>
                     <Route path="/dialogs" element={<Dialogs/>}/>
                     <Route path="/posts" element={<Posts/>}/>
+                    <Route path="/users" element={<Users/>}/>
                 </Routes>
             </div>
         )
