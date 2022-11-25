@@ -3,9 +3,9 @@ const UNFOLLOW = 'UNFOLLOW';
 
 const initialState = {
    users: [
-       { id: 1, name: "Stepan S", message: "Hy friends!!!", country: "Ukraine", city: "Kiev" },
-       { id: 2, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
-       { id: 3, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
+       { id: 1, placefolder: "users-reducer", follow: false, name: "Stepan S", message: "Hy friends!!!", country: "Ukraine", city: "Kiev" },
+       { id: 2, follow: true, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
+       { id: 3, follow: false, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
    ]
 }
 
@@ -13,18 +13,15 @@ const usersReducer = ( state = initialState, action ) => {
     // debugger
    switch ( action.type) {
        case FOLLOW: {
-
            let stateCopy = {...state}
-           stateCopy.messagesPageTextAreaText = action.newText;
+           stateCopy.users = {...state.usersPage}
+
            return stateCopy;
        }
        case
            UNFOLLOW: {
-           const newMessage = {id: 2, name: "You", message: action.newText, like: 24};
-           let stateCopy = {...state}
-           stateCopy.MessagesData = [...state.MessagesData]
-           stateCopy.MessagesData.push(newMessage);
-           return stateCopy;
+
+           return ;
        }
        default:
            return state
@@ -33,5 +30,9 @@ const usersReducer = ( state = initialState, action ) => {
 
     return state
 }
+
+export const followActionCreator = () => ({type: FOLLOW })
+export const unfollowActionCreator = () => ({type: UNFOLLOW })
+
 
 export default usersReducer

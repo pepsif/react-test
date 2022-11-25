@@ -16,26 +16,26 @@ const initialState = {
     messagesPageTextAreaText: 'enter you message'
 }
 
-const messagesReducer = ( state = initialState, action ) => {
+const messagesReducer = (state = initialState, action) => {
     // debugger
-   switch ( action.type) {
-       case UPDATE_MESSAGE_TEXT: {
+    switch (action.type) {
+        case UPDATE_MESSAGE_TEXT: {
 
-           let stateCopy = {...state}
-           stateCopy.messagesPageTextAreaText = action.newText;
-           return stateCopy;
-       }
-       case
-           ADD_NEW_MESSAGE: {
-           const newMessage = {id: 2, name: "You", message: action.newText, like: 24};
-           let stateCopy = {...state}
-           stateCopy.MessagesData = [...state.MessagesData]
-           stateCopy.MessagesData.push(newMessage);
-           return stateCopy;
-       }
-       default:
-           return state
-   }
+            let stateCopy = {...state}
+            stateCopy.messagesPageTextAreaText = action.newText;
+            return stateCopy;
+        }
+        case
+        ADD_NEW_MESSAGE: {
+            const newMessage = {id: 2, name: "You", message: action.newText, like: 24};
+            let stateCopy = {...state}
+            stateCopy.MessagesData = [...state.MessagesData]
+            stateCopy.MessagesData.push(newMessage);
+            return stateCopy;
+        }
+        default:
+            return state
+    }
     return state
 }
 

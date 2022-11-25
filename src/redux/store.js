@@ -1,5 +1,6 @@
 import postsReducer from "./posts-reducer";
 import messagesReducer from "./messages-reducer";
+import usersReducer from "./users-reducer";
 
 let store = {
     _state: {
@@ -24,6 +25,16 @@ let store = {
                 {name: "you", message: "yo, its olright", like: 3}
             ],
             newPostText: "enter you message"
+        },
+        usersPage: {
+            test: [
+                {test:"users page test object"}
+            ],
+            users: [
+                { id: 1, follow: false, name: "Stepan S", message: "Hy friends!!!", country: "Ukraine", city: "Kiev" },
+                { id: 2, follow: true, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
+                { id: 3, follow: false, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
+            ]
         }
     },
     _callSubscriber() {
@@ -35,15 +46,14 @@ let store = {
     getState() {
         return this._state
     },
-    getDialogData() {
-      return this._state.dialogsPage.DialogData
-    },
+
     dispatch( action ) {
         // debugger
-        
+
        // --REDUCERS--LOGic- ---
         this._state.postsPage = postsReducer(this._state.postsPage, action)   //update text and add post
         this._state.dialogsPage = messagesReducer(this._state.dialogsPage, action)
+        this._state.usersPage = usersReducer(this._state.usersPage, action)
 
         this._callSubscriber(this.getState())
     }
