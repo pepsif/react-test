@@ -1,6 +1,3 @@
-import postsReducer from "./posts-reducer";
-import messagesReducer from "./messages-reducer";
-import usersReducer from "./users-reducer";
 
 let store = {
     _state: {
@@ -25,17 +22,17 @@ let store = {
                 {id: 2, name: "you", message: "yo, its olright", like: 3}
             ],
             newPostText: "enter you message"
-        },
-        usersPage: {
-            test: [
-                {test:"users page test object"}
-            ],
-            users: [
-                { id: 1, follow: false, name: "Stepan S", message: "Hy friends from state!!!", country: "Ukraine", city: "Kiev" },
-                { id: 2, follow: true, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
-                { id: 3, follow: false, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
-            ]
-        }
+        } ,
+        // usersPage: {
+        //     test: [
+        //         {test:"users page test object"}
+        //     // ],
+        //     // users: [
+        //     //     { id: 1, follow: false, name: "Stepan S", message: "Hy friends from state!!!", country: "Ukraine", city: "Kiev" },
+        //     //     { id: 2, follow: true, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
+        //     //     { id: 3, follow: false, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
+        //      ]
+        // }
     },
     _callSubscriber() {
         console.log('state is changed')
