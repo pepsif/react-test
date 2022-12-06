@@ -5,7 +5,6 @@ import Aside from "./components/Aside/Aside";
 import UserCard from "./components/User card/User card";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
-import Users from "./components/Users/Users"
 import UsersContainer from "./components/Users/UsersContainer";
 
 

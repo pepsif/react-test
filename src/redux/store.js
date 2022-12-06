@@ -21,8 +21,8 @@ let store = {
         },
         postsPage: {
             posts: [
-                {name: "stepa", message: "hi, what  hapened?", like: 1},
-                {name: "you", message: "yo, its olright", like: 3}
+                {id: 1, name: "stepa", message: "hi, what  hapened?", like: 1},
+                {id: 2, name: "you", message: "yo, its olright", like: 3}
             ],
             newPostText: "enter you message"
         },
@@ -31,7 +31,7 @@ let store = {
                 {test:"users page test object"}
             ],
             users: [
-                { id: 1, follow: false, name: "Stepan S", message: "Hy friends!!!", country: "Ukraine", city: "Kiev" },
+                { id: 1, follow: false, name: "Stepan S", message: "Hy friends from state!!!", country: "Ukraine", city: "Kiev" },
                 { id: 2, follow: true, name: "Alena K", message: "Hellooo!!!", country: "Sweden", city: "Pillou" },
                 { id: 3, follow: false, name: "Anatoliy S", message: "Job well done", country: "Ukraine", city: "Ternopil" }
             ]
@@ -45,18 +45,8 @@ let store = {
     },
     getState() {
         return this._state
-    },
-
-    dispatch( action ) {
-        // debugger
-
-       // --REDUCERS--LOGic- ---
-        this._state.postsPage = postsReducer(this._state.postsPage, action)   //update text and add post
-        this._state.dialogsPage = messagesReducer(this._state.dialogsPage, action)
-        this._state.usersPage = usersReducer(this._state.usersPage, action)
-
-        this._callSubscriber(this.getState())
     }
+
 }
     //  --POST-ACTION-CREATORS----
 
@@ -66,15 +56,6 @@ export let addPostActionCreator = (text) => {
 export let updatePostTextActionCreator = (text) => {
     return ({type: 'UPDATE-NEW-POST-TEXT', newText: text})
 }
-
-//   --MESSAGES_ACTION-CREATORS---
-export let updatePostActionCreator = (text) => {
-    return ( { type: 'UPDATE-MESSAGE-TEXT', newText: text } )
-}
-export let sendMessageActionCreator = (text) => {
-    return ( { type: 'ADD-NEW-MESSAGE', newText: text } )
-}
-
 
 export default store;
 window.store = store;

@@ -1,7 +1,6 @@
 import styles from "./Post.module.css"
 import photo from "../../../Images/15.jpg"
 import React from "react"
-// import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/reduxStore";
 
 
 const Post = (props) => {
@@ -12,7 +11,7 @@ const Post = (props) => {
     const postsElements = props.postsArr.map(item => {
         // debugger
         return (
-            <div className={styles.post_section}>
+            <div className={styles.post_section} key={item.id}>
                 <img className={styles.post_photo} src={photo} alt="user photo"></img>
                 <div className={styles.user_block}>
                     <h3 className={styles.post_text}>{item.name}</h3>

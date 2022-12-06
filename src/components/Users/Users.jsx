@@ -6,9 +6,9 @@ const Users = (props) => {
         return (
             <div className={styles.user_block} key={el.id}>
                 <div className={styles.follow_block}>
-                    <img className={styles.follow_image} src={require("../../icons/avatar-icon.jpg")}></img>
-                    {(el.follow === true) ? <button className={styles.follow_button}>Unfollow</button>
-                        : <button className={styles.follow_button}>Follow</button>}
+                    <img className={styles.follow_image} src={require("../../icons/avatar-icon.jpg")} alt="user foto"></img>
+                    {(el.follow === true) ? <button className={styles.follow_button} onClick={props.unfollow}>Unfollow</button>
+                        : <button className={styles.follow_button} onClick={ props.follow}>Follow</button>}
 
                 </div>
                 <div className={styles.user_info_block}>

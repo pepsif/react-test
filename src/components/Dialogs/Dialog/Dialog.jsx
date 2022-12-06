@@ -14,7 +14,7 @@ const DialogItem = ( props ) => {
 const Dialog = ( props ) => {
 // debugger
     const DialogElements = props.dialogData.map( item => {
-        return <DialogItem name={item.name} id={item.id} />
+        return <DialogItem name={item.name} id={item.id} key={item.id}/>
 
     })
     return (
