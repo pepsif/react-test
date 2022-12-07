@@ -8,10 +8,10 @@ const Messages = ( props ) => {
     const addMessageButton = React.createRef();
     
     const MessagesElements = props.messagesArray.map(item => {
-        return <div className={styles.messages_item}>
+        return <div className={styles.messages_item} key={item.id}>
                  <img className={styles.message_image} src={smile} alt="smile"></img>
                  <h4 className={styles.name}>{item.name}</h4>
-                 <p>{item.message}</p>
+                 <p>{item.message} key={item.id}</p>
                </div>
     })
     const messagesPostChange = () => {

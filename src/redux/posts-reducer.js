@@ -3,10 +3,10 @@ const ADD_POST = 'ADD-POST';
 
 const initialState = {
     posts: [
-        {name: "stepa", message: "hi, what  hapened?", like: 1},
-        {name: "you", message: "yo, its olright", like: 3}
+        { id:1, name: "stepa", message: "hi, what  hapened?", like: 1 },
+        { id:2, name: "you", message: "yo, its olright", like: 3 }
     ],
-    newPostText: "first rendering"
+    newPostText: "first rendering from reducer"
 }
 
 export const postsReducer = (state = initialState, action) => {
