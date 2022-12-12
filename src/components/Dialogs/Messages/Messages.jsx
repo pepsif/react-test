@@ -11,7 +11,7 @@ const Messages = ( props ) => {
         return <div className={styles.messages_item} key={item.id}>
                  <img className={styles.message_image} src={smile} alt="smile"></img>
                  <h4 className={styles.name}>{item.name}</h4>
-                 <p>{item.message} key={item.id}</p>
+                 <p key={item.id}>{item.message} </p>
                </div>
     })
     const messagesPostChange = () => {
