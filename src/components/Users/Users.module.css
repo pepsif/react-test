@@ -73,3 +73,15 @@ border-radius: 5px;
   align-self: start;
 
 }
+.pagination {
+    color:white;
+}
+.pagination span {
+    cursor: pointer;
+}
+.selectedPage {
+    font-weight: bolder;
+margin:0 2px;
+    color:red;
+
+}
