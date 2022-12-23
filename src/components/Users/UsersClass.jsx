@@ -16,18 +16,20 @@ class UsersClass extends React.Component {
     render() {
          let pagesCount = this.props.totalUsersCount / this.props.pageSize;
          let pages = [];
-         for(let i=1; i<=9; i++) {
+         for(let i=1; i<=8; i++) {
              pages.push(
-               (i === 4 || i ===5 || i===6 ? "." : i)
+               (i === 5 || i ===6 || i===7 ? "." : i)
              )
-
          }
         return <div className={styles.users_section}>
             <h2 className={styles.users_title}>Users</h2>
             <div className={styles.pagination}>
                 {
                     pages.map(el=>{
-                        return <span>{(el===9 ? this.props.totalUsersCount:el)}</span>
+                        return <span className={(this.props.currentPage===el ? styles.selectedPage : '')}
+                        onClick={()=>{this.props.setCurrentPage(el)}}>
+                            {(el===8 ? this.props.totalUsersCount:el)}
+                        </span>
                     })
                     // <span className={styles.selectedPage}>1</span>
                     // <span>{this.props.totalUsersCount}</span>
