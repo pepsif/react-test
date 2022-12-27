@@ -22,7 +22,6 @@ class UsersClass extends React.Component {
             )
     }
     render() {
-        // let pagesCount = this.props.totalUsersCount / this.props.pageSize;
         let pages = [];
         for (let i = 1; i <= 8; i++) {
             pages.push( i
