@@ -6,8 +6,8 @@ const Dialogs = () => {
     // debugger
     return (
         <div className={styles.dialogs}>
-            <DialogContainer/>
-            <MessagesContainer/>
+            <DialogContainer />
+            <MessagesContainer />
         </div>
     )
 }
