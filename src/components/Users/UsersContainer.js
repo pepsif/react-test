@@ -1,45 +1,54 @@
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 import {
     followActionCreator, setCurrentPageActionCreator,
     setInitialPageActionCreator,
-    setUsersActionCreator,
+    setUsersActionCreator, toggleIsFetchingActionCreator,
     unfollowActionCreator
-} from "../../redux/users-reducer";
-import React from "react";
-import axios from "axios";
-import Users from "./Users";
-
+} from '../../redux/users-reducer';
+import React from 'react';
+import axios from 'axios';
+import Users from './Users';
+import preloader from '../../icons/preloader.gif';
 
 class UsersApiComponent extends React.Component {
     componentDidMount() {
+        this.props.toggleFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
+                    this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
                     this.props.setInitialPage(response.data.totalCount)
-                    console.log(response.data.items, this.props.currentPage)
+                    console.log(this.props.isFetching)
                 }
             )
     }
+
     onPageChanged(pageNumber) {
-        // alert(pageNumber)
+        this.props.toggleFetching(true)
         this.props.setCurrentPage(pageNumber)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
+                    this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
                     console.log(response.data.items, this.props.currentPage)
                 }
             )
     }
+
     render() {
-        return <Users currentPage={this.props.currentPage}
-                      onPageChanged={this.onPageChanged.bind(this)}
-                      totalUsersCount={this.props.totalUsersCount}
-                      users={this.props.users}
-                      follow={this.props.follow}
-                      unfollow={this.props.unfollow}
+        return <>
+            {
+                (this.props.isFetching === true ? <img src={preloader}/> : null)
+            }
+            <Users currentPage={this.props.currentPage}
+                   onPageChanged={this.onPageChanged.bind(this)}
+                   totalUsersCount={this.props.totalUsersCount}
+                   users={this.props.users}
+                   follow={this.props.follow}
+                   unfollow={this.props.unfollow}
 
-        />
-
+            />
+        </>
     }
 }
 
@@ -48,30 +57,34 @@ const mapStateToProps = (state) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-     follow: (userId) => {
-         dispatch(followActionCreator(userId))
-     },
-     unfollow: (userId) => {
-        dispatch(unfollowActionCreator(userId))
-    },
-    setUsers: (users) => {
-        dispatch(setUsersActionCreator(users))
-    },
-    setInitialPage: (totalCount) => {
-     dispatch(setInitialPageActionCreator(totalCount))
-    },
-    setCurrentPage: (currentPage) => {
-         dispatch(setCurrentPageActionCreator(currentPage))
-    }
+        follow: (userId) => {
+            dispatch(followActionCreator(userId))
+        },
+        unfollow: (userId) => {
+            dispatch(unfollowActionCreator(userId))
+        },
+        setUsers: (users) => {
+            dispatch(setUsersActionCreator(users))
+        },
+        setInitialPage: (totalCount) => {
+            dispatch(setInitialPageActionCreator(totalCount))
+        },
+        setCurrentPage: (currentPage) => {
+            dispatch(setCurrentPageActionCreator(currentPage))
+        },
+        toggleFetching: (isFetching) => {
+            dispatch(toggleIsFetchingActionCreator(isFetching))
+        }
     }
 
 }
 
-const UsersContainer = connect( mapStateToProps, mapDispatchToProps )(UsersApiComponent)
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApiComponent)
 
-export default  UsersContainer
+export default UsersContainer

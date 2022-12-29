@@ -10,13 +10,13 @@ const root = createRoot(container);
 
 
 root.render(
-    // <React.StrictMode>
+
         <BrowserRouter>
             <Provider store={reduxStore}>
                 <App />
             </Provider>
         </BrowserRouter>
-     // </React.StrictMode>
+
 
 )
 

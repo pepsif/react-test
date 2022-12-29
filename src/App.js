@@ -8,10 +8,8 @@ import Posts from "./components/Posts/Posts";
 import UsersContainer from "./components/Users/UsersContainer";
 
 
-export let App = ( props ) => {
-    // debugger
-    // console.log(props)
-    return(
+export let App = () => {
+      return(
             <div className="main_content">
                 <Header />
                 <Aside />
@@ -20,6 +18,7 @@ export let App = ( props ) => {
                     <Route path="/dialogs" element={<Dialogs/>}/>
                     <Route path="/posts" element={<Posts/>}/>
                     <Route path="/users" element={<UsersContainer/>}/>
+                    <Route path="/settings" element={<h2>settings</h2>}/>
                 </Routes>
             </div>
         )
