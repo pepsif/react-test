@@ -18,11 +18,10 @@ class UsersApiComponent extends React.Component {
                     this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
                     this.props.setInitialPage(response.data.totalCount)
-                    console.log(this.props.isFetching)
+                    // console.log(this.props.isFetching)
                 }
             )
     }
-
     onPageChanged(pageNumber) {
         this.props.toggleFetching(true)
         this.props.setCurrentPage(pageNumber)
@@ -30,11 +29,10 @@ class UsersApiComponent extends React.Component {
             .then(response => {
                     this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
-                    console.log(response.data.items, this.props.currentPage)
+                    // console.log(response.data.items, this.props.currentPage)
                 }
             )
     }
-
     render() {
         return <>
             {
@@ -46,12 +44,10 @@ class UsersApiComponent extends React.Component {
                    users={this.props.users}
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
-
             />
         </>
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
@@ -82,9 +78,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(toggleIsFetchingActionCreator(isFetching))
         }
     }
-
 }
-
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApiComponent)
 
 export default UsersContainer

@@ -31,9 +31,9 @@ let store = {
     // subscribe( observer ) {
     //     this._callSubscriber = observer;
     // },
-    // getState() {
-    //     return this._state
-    // }
+    getState() {
+        return this._state
+    }
 
 }
     //  --POST-ACTION-CREATORS----

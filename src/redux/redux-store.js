@@ -3,12 +3,14 @@ import postsReducer from "./posts-reducer";
 import messagesReducer from "./messages-reducer";
 import {composeWithDevTools} from '@redux-devtools/extension';
 import usersReducer from "./users-reducer";
+import profileReducer from "./profile-reducer";
 
 
 let reducers = combineReducers({
     postsPage: postsReducer,
     dialogsPage: messagesReducer,
-    usersPage: usersReducer
+    usersPage: usersReducer,
+    profilePage: profileReducer
 })
 
 

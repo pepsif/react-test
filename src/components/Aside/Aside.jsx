@@ -3,12 +3,11 @@ import {NavLink} from "react-router-dom";
 
 
 const Aside = (props) => {
-
     return (
         <div className={styles.aside}>
             <ul className={styles.nav_list}>
                 <li className={styles.item}>
-                    <NavLink to="/profile" className={styles.item_link}>User Profile</NavLink>
+                    <NavLink to="/profile" className={styles.item_link}>User Profiles</NavLink>
                 </li>
                 <li className={styles.item}>
                     <NavLink to="/dialogs" className={styles.item_link}>Dialogs<span className={styles.span}> {props.message} messages</span></NavLink>

@@ -2,10 +2,11 @@ import './index.css';
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Aside from "./components/Aside/Aside";
-import UserCard from "./components/User card/User card";
+import Profile from "./components/User card/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Posts from "./components/Posts/Posts";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/User card/ProfileContainer";
 
 
 export let App = () => {
@@ -14,7 +15,7 @@ export let App = () => {
                 <Header />
                 <Aside />
                 <Routes>
-                    <Route path="/profile" element={<UserCard/>}/>
+                    <Route path="/profile" element={<ProfileContainer/>}/>
                     <Route path="/dialogs" element={<Dialogs/>}/>
                     <Route path="/posts" element={<Posts/>}/>
                     <Route path="/users" element={<UsersContainer/>}/>

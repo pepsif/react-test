@@ -1,7 +1,7 @@
 import Aside from "../Aside/Aside";
 import styles from './Content.module.css';
 
-import UserCard from "../User card/User card";
+import Profile from "../User card/Profile";
 
 const Content = () => {
     return (
