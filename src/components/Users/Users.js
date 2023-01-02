@@ -6,8 +6,9 @@ let Users = (props) => {
     // debugger
     let pages = [];
     for (let i = 1; i <= 8; i++) {
-        pages.push(i
-            // (i === 5 || i === 6 || i === 7 ? "." : i)
+        pages.push(
+            (i === 5 || i === 6 || i === 7 ? "." : i)
+
         )
     }
     return <div className={styles.users_section}>
