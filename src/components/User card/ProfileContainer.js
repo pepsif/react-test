@@ -24,10 +24,12 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
+
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        debugger
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/12`)
+        // debugger
+       let userId = this.props.router.params.userId
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
             .then(response => {
                 this.props.setUserProfileAC(response.data)
                     // console.log(response.data)

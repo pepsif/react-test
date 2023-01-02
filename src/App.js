@@ -15,7 +15,7 @@ export let App = () => {
                 <Header />
                 <Aside />
                 <Routes>
-                    <Route path="/profile" element={<ProfileContainer/>}/>
+                    <Route path="/profile/:userId" element={<ProfileContainer/>}/>
                     <Route path="/dialogs" element={<Dialogs/>}/>
                     <Route path="/posts" element={<Posts/>}/>
                     <Route path="/users" element={<UsersContainer/>}/>

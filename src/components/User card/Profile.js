@@ -12,11 +12,12 @@ const Profile = (props) => {
 
     }
     // debugger
-    // console.log(props)
+    console.log(props.profile)
     return (
         <div className={styles.card}>
             <img className={styles.card_photo} src={props.profile.photos.large} alt="photo"/>
             <div className={styles.card_description}>
+            <h3 className={`${styles.card_item} ${styles.card_name}`}>{props.profile.fullName}</h3>
                 <h3 className={`${styles.card_item} ${styles.card_name}`}>{props.profile.aboutMe}</h3>
                 <p className={styles.card_item}>Date of Birth: 2 january</p>
                 <p className={styles.card_item}>City: Lviv</p>
