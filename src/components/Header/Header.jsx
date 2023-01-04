@@ -1,14 +1,15 @@
 import styles from './Header.module.css'
-import Logo_block from "./Logo block/Logo_block";
+import LogoBlock from "./Logo block/Logo_block";
 import Navigation from "./Navigation/Navigation";
+import UserBlock from "./UserBlock/UserBlock";
 
-
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <Logo_block />
+                <LogoBlock />
                 <Navigation />
+                <UserBlock isAuth={props.isAuth} login={props.login}/>
 
             </div>
         </header>
