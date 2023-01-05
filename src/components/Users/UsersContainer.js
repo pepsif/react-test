@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import './UsersContainer.css'
 import {
     followActionCreator, setCurrentPageActionCreator,
     setInitialPageActionCreator,
@@ -13,7 +14,9 @@ import preloader from '../../icons/preloader.gif';
 class UsersApiComponent extends React.Component {
     componentDidMount() {
         this.props.toggleFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        })
             .then(response => {
                     this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
@@ -22,10 +25,13 @@ class UsersApiComponent extends React.Component {
                 }
             )
     }
+
     onPageChanged(pageNumber) {
         this.props.toggleFetching(true)
         this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        })
             .then(response => {
                     this.props.toggleFetching(false)
                     this.props.setUsers(response.data.items)
@@ -33,10 +39,16 @@ class UsersApiComponent extends React.Component {
                 }
             )
     }
+
     render() {
         return <>
             {
-                (this.props.isFetching === true ? <img src={preloader}/> : null)
+                    (this.props.isFetching === true ?
+                    <div className="preloader-wrapper">
+                     <img className="preloader-img" src={preloader}/>
+                    </div>
+                    :
+                    null)
             }
             <Users currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged.bind(this)}
@@ -48,6 +60,7 @@ class UsersApiComponent extends React.Component {
         </>
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,

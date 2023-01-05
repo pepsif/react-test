@@ -6,7 +6,6 @@ let initialState = {
     login: null,
     isAuth: null
 }
-
 const authReducer = (state = initialState, action) => {
     // debugger
       switch (action.type) {
