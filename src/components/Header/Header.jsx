@@ -8,7 +8,7 @@ const Header = (props) => {
         <header className={styles.header}>
             <div className={styles.container}>
                 <LogoBlock />
-                <Navigation />
+                {/* <Navigation /> */}
                 <UserBlock isAuth={props.isAuth} login={props.login}/>
 
             </div>

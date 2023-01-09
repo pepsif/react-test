@@ -21,22 +21,20 @@ class UsersApiComponent extends React.Component {
                 this.props.toggleFetching(false)
                 this.props.setUsers(data.items)
                 this.props.setInitialPage(data.totalCount)
-
             }
         )
     }
-
     onPageChanged(pageNumber) {
         this.props.toggleFetching(true)
         this.props.setCurrentPage(pageNumber)
         getUsers(pageNumber, this.props.pageSize).then(data => {
+            // debugger
                 this.props.toggleFetching(false)
                 this.props.setUsers(data.items)
                 // console.log(response.data.items, this.props.currentPage)
             }
         )
     }
-
     render() {
         return <>
             {

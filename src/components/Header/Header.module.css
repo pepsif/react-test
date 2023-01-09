@@ -1,11 +1,17 @@
 .container {
-    max-width: 1200px;
-    display: flex;
+    max-width: 800px;
+    height: 100%;
+   background-color: darkorange;
+display: flex;
+justify-content: space-between;
+align-items: center;
+    margin: 0 auto;
+
 }
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
     background-color: #4B946A;
     grid-area: header;
 }
