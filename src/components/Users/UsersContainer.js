@@ -7,7 +7,6 @@ import {
     unfollowActionCreator
 } from '../../redux/users-reducer';
 import React from 'react';
-import axios from 'axios';
 import Users from './Users';
 import preloader from '../../icons/preloader.gif';
 import {getUsers} from "../../api/api";

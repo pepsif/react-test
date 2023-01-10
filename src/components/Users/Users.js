@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Users.module.css";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {instance} from '../../api/api'
 
 let Users = (props) => {
     // debugger
@@ -35,13 +35,7 @@ let Users = (props) => {
                         </NavLink>
                         {
                             (el.followed) ? <button className={styles.follow_button} onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                                         {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY" : "14b83656-c8fd-40a9-86e9-e9c5c1b96848"
-                                            }
-                                        })
+                                    instance.delete(`follow/${el.id}`)
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.unfollow(el.id)
@@ -49,17 +43,10 @@ let Users = (props) => {
                                                 console.log(response)
                                             }
                                         )
-                                props.unfollow(el.id)
+                                    props.unfollow(el.id)
                                 }}>Unfollow</button>
-
                                 : <button className={styles.follow_button} onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                                        {}, {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY" : "14b83656-c8fd-40a9-86e9-e9c5c1b96848"
-                                            }
-                                        })
+                                    instance.post(`follow/${el.id}`, {})
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.follow(el.id)

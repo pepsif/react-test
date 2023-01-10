@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const instance = axios.create({
+export const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
@@ -13,7 +13,6 @@ export const getUsers = (currentPage, pageSize) => {
             return response.data
         })
 }
-
 export const authUser = () => {
     return instance.get(`auth/me`)
         .then(response => {
