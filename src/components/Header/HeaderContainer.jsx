@@ -3,11 +3,11 @@ import Header from "./Header";
 import axios from "axios";
 import {connect} from "react-redux";
 import {setAuthUserDataAC} from "../../redux/auth-reducer.js"
-import { authUser } from "../../api/api";
+import {authUser, usersAPI} from "../../api/api";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        authUser()
+        usersAPI.authUser()
             .then(response => {
                 // debugger
                     if (response.resultCode === 0) {

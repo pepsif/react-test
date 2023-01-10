@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Users.module.css";
 import {NavLink} from "react-router-dom";
-import {instance} from '../../api/api'
+import {usersAPI} from '../../api/api'
+import {instance} from "../../api/api";
 
 let Users = (props) => {
     // debugger
@@ -35,23 +36,23 @@ let Users = (props) => {
                         </NavLink>
                         {
                             (el.followed) ? <button className={styles.follow_button} onClick={() => {
-                                    instance.delete(`follow/${el.id}`)
+                                    instance.delete(`follow/${el.id}`) // TODO: 'need instance change usersAPI.baseInstance'
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.unfollow(el.id)
                                                 }
-                                                console.log(response)
+                                                // console.log(response)
                                             }
                                         )
                                     props.unfollow(el.id)
                                 }}>Unfollow</button>
                                 : <button className={styles.follow_button} onClick={() => {
-                                    instance.post(`follow/${el.id}`, {})
+                                    instance.post(`follow/${el.id}`, {}) // TODO: 'need instance change usersAPI.baseInstance'
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.follow(el.id)
                                                 }
-                                                console.log(response)
+                                                // console.log(response)
                                             }
                                         )
                                 }}>Follow</button>

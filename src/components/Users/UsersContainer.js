@@ -9,13 +9,12 @@ import {
 import React from 'react';
 import Users from './Users';
 import preloader from '../../icons/preloader.gif';
-import {getUsers} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 class UsersApiComponent extends React.Component {
     componentDidMount() {
-
         this.props.toggleFetching(true)
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
              // debugger
                 this.props.toggleFetching(false)
                 this.props.setUsers(data.items)
@@ -26,7 +25,7 @@ class UsersApiComponent extends React.Component {
     onPageChanged(pageNumber) {
         this.props.toggleFetching(true)
         this.props.setCurrentPage(pageNumber)
-        getUsers(pageNumber, this.props.pageSize).then(data => {
+        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
             // debugger
                 this.props.toggleFetching(false)
                 this.props.setUsers(data.items)
