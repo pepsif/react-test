@@ -35,23 +35,28 @@ let Users = (props) => {
                                  alt="user foto"></img>
                         </NavLink>
                         {
-                            (el.followed) ? <button className={styles.follow_button} onClick={() => {
+                            // TODO: 'need restore functional disabled 0n 0f button'
+                            (el.followed) ? <button className={styles.follow_button} disabled={!props.buttonIsFetching} onClick={() => {
+                                 props.buttonIsFetching(true)
                                     instance.delete(`follow/${el.id}`) // TODO: 'need instance change usersAPI.baseInstance'
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.unfollow(el.id)
                                                 }
-                                                // console.log(response)
+                                               props.buttonIsFetching(false)
                                             }
                                         )
                                     props.unfollow(el.id)
                                 }}>Unfollow</button>
-                                : <button className={styles.follow_button} onClick={() => {
+                                : <button className={styles.follow_button} disabled={props.buttonIsFetching}  onClick={() => {
+                                    // props.buttonIsFetching(true)
+                                // debugger
                                     instance.post(`follow/${el.id}`, {}) // TODO: 'need instance change usersAPI.baseInstance'
                                         .then(response => {
                                                 if (response.data.resultCode === 0) {
                                                     props.follow(el.id)
                                                 }
+                                            // props.buttonIsFetching(false)
                                                 // console.log(response)
                                             }
                                         )

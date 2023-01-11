@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import './UsersContainer.css'
 import {
+    buttonFollowingProgressAC,
     followActionCreator, setCurrentPageActionCreator,
     setInitialPageActionCreator,
     setUsersActionCreator, toggleIsFetchingActionCreator,
@@ -49,6 +50,7 @@ class UsersApiComponent extends React.Component {
                    users={this.props.users}
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
+                   buttonIsFetching={this.props.buttonIsFetching}
             />
         </>
     }
@@ -60,7 +62,8 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        buttonIsFetching: state.usersPage.followingProgress
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -82,6 +85,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         toggleFetching: (isFetching) => {
             dispatch(toggleIsFetchingActionCreator(isFetching))
+        },
+        buttonFetching:  (isFetching) => {
+            dispatch(buttonFollowingProgressAC(isFetching))
         }
     }
 }
