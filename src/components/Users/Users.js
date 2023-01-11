@@ -36,31 +36,33 @@ let Users = (props) => {
                         </NavLink>
                         {
                             // TODO: 'need restore functional disabled 0n 0f button'
-                            (el.followed) ? <button className={styles.follow_button} disabled={!props.buttonIsFetching} onClick={() => {
-                                 props.buttonIsFetching(true)
-                                    instance.delete(`follow/${el.id}`) // TODO: 'need instance change usersAPI.baseInstance'
-                                        .then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.unfollow(el.id)
-                                                }
-                                               props.buttonIsFetching(false)
-                                            }
-                                        )
-                                    props.unfollow(el.id)
-                                }}>Unfollow</button>
-                                : <button className={styles.follow_button} disabled={props.buttonIsFetching}  onClick={() => {
-                                    // props.buttonIsFetching(true)
-                                // debugger
-                                    instance.post(`follow/${el.id}`, {}) // TODO: 'need instance change usersAPI.baseInstance'
-                                        .then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.follow(el.id)
-                                                }
-                                            // props.buttonIsFetching(false)
-                                                // console.log(response)
-                                            }
-                                        )
-                                }}>Follow</button>
+                            (el.followed) ? <button className={styles.follow_button} disabled={props.buttonIsFetching}
+                                                    onClick={() => {
+                                                        props.buttonFetching(true)
+                                                        instance.delete(`follow/${el.id}`) // TODO: 'need instance change usersAPI.baseInstance'
+                                                            .then(response => {
+                                                                    if (response.data.resultCode === 0) {
+                                                                        props.unfollow(el.id)
+                                                                    }
+                                                                    props.buttonFetching(false)
+                                                                }
+                                                            )
+                                                        props.unfollow(el.id)
+                                                    }}>Unfollow</button>
+                                : <button className={styles.follow_button} disabled={props.buttonIsFetching}
+                                          onClick={() => {
+                                              props.buttonFetching(true)
+                                              // debugger
+                                              instance.post(`follow/${el.id}`, {}) // TODO: 'need instance change usersAPI.baseInstance'
+                                                  .then(response => {
+                                                          if (response.data.resultCode === 0) {
+                                                              props.follow(el.id)
+                                                          }
+                                                          props.buttonFetching(false)
+                                                          // console.log(response)
+                                                      }
+                                                  )
+                                          }}>Follow</button>
                         }
                     </div>
                     <div className={styles.user_info_block}>

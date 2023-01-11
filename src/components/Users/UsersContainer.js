@@ -51,6 +51,8 @@ class UsersApiComponent extends React.Component {
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
                    buttonIsFetching={this.props.buttonIsFetching}
+                   buttonFetching={this.props.buttonFetching}
+
             />
         </>
     }
